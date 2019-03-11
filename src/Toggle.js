@@ -1,22 +1,15 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
 
-export default class Refactor extends Component {
-  state = {
-    isToggled: false
-  }
+const Toggle = () => {
 
-  toggle = () => {
-    this.setState(state => {
-      return { isToggled: !state.isToggled }
-    });
-  }
+  const [isToggled, setToggle] = useState(false)
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.toggle}>Toggle</button>
-        {this.state.isToggled && <h2>Hello!</h2>}
-      </div>
-    )
-  }
+  return (
+    <div>
+      <button onClick={() => setToggle(!isToggled)}>Toggle</button>
+      {isToggled && <h2>Hello</h2>}
+    </div>
+  )
 }
+
+export default Toggle
