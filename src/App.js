@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Toggle from './Toggle'
 import { useTitleInput } from './hooks/useTitleInput'
 
 const App = () => {
 
   const [name, setName] = useTitleInput('');
+  const ref = useRef()
+  console.log('ref:', ref.current);
 
   return (
-    <div className="main-wrapper">
+    <div className="main-wrapper" ref={ref}>
       <h1>React Hooks</h1>
       <Toggle />
       <form onSubmit={(e) => {
