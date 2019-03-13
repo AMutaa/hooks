@@ -24,3 +24,6 @@ const App = () => {
 };
 
 export default App;
+
+
+// useRef ... attach ref to a DOM element
