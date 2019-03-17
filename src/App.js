@@ -1,4 +1,4 @@
-import React, { useRef, createContext } from 'react';
+import React, { useRef, createContext, useMemo } from 'react';
 import Toggle from './Toggle'
 import { useTitleInput } from './hooks/useTitleInput'
 import Counter from './Counter'
@@ -12,6 +12,20 @@ const App = () => {
   const ref = useRef()
   console.log('ref:', ref.current);
 
+
+  const reverseWord = (word) => {
+    console.log('function called')
+    return word
+      .split('')
+      .reverse()
+      .join('');
+  }
+
+  const title = 'React Hooks'
+
+  //useMemo
+  const titleReversed = useMemo(() => reverseWord(name), [name])
+
   return (
     <UserContext.Provider
       value={{
@@ -19,7 +33,7 @@ const App = () => {
       }}
     >
       <div className="main-wrapper" ref={ref}>
-        <h1>React Hooks</h1>
+        <h1>{titleReversed}</h1>
         <Toggle />
         <Counter />
         <form onSubmit={(e) => {
