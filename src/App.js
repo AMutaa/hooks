@@ -14,7 +14,7 @@ const App = () => {
 
   const [dishes, setDishes] = useState([])
   const fetchDishes = async () => {
-    console.log('hello')
+    console.log('ran')
     const res = await fetch('https://my-json-server.typicode.com/leveluptuts/fakeapi/dishes')
     const data = await res.json();
     setDishes(data)
@@ -23,9 +23,12 @@ const App = () => {
 
 
   // second parameter [] : runs this only on mount
+  // something determine when the useEffect runs, put it in the array ie
+
   useEffect(() => {
     fetchDishes()
   }, [])
+ // something determine when the useEffect runs, put it in the array ie line 30:  }, [name])
 
   return (
     <UserContext.Provider
