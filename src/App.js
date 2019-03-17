@@ -1,4 +1,4 @@
-import React, { useRef, createContext } from 'react';
+import React, { useState, useEffect, useRef, createContext } from 'react';
 import Toggle from './Toggle'
 import { useTitleInput } from './hooks/useTitleInput'
 import Counter from './Counter'
@@ -12,22 +12,45 @@ const App = () => {
   const ref = useRef()
   console.log('ref:', ref.current);
 
+  const [dishes, setDishes] = useState([])
+  const fetchDishes = async () => {
+    const res = await fetch('https://my-json-server.typicode.com/leveluptuts/fakeapi/dishes')
+    const data = await res.json();
+    setDishes(data)
+
+  }
+
+  useEffect(() => {
+
+  })
+
   return (
     <UserContext.Provider
       value={{
-        user: false
+        user: true
       }}
     >
       <div className="main-wrapper" ref={ref}>
         <h1>React Hooks</h1>
         <Toggle />
-        <Counter />
+        {/* <Counter /> */}
         <form onSubmit={(e) => {
           e.preventDefault();
         }}>
           <input type="text" onChange={(e) => setName(e.target.value)} value={name} />
           <button>Submit</button>
         </form>
+        {dishes.map(dish => (
+          <article className='dish-card dish-card--withImage'>
+            <h3>{dish.name}</h3>
+            <p>{dish.desc}</p>
+            <div className="ingredients">
+              {dish.ingredients.map((ingredient) => (
+                <span>{ingredient}</span>))}
+            </div>
+          </article>
+        ))}
+
       </div>
     </UserContext.Provider>
   );
