@@ -6,7 +6,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
-    "react-tagsinput": "^3.19.0"
+    "react-tagsinput": "^3.19.0",
+    "use-abortable-fetch": "^2.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
