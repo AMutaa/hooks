@@ -8,8 +8,8 @@ function reducer(state, action) {
   switch (action.type) {
     case 'add':
       return {
-        count: state.count + 1
-        // count: state.count + action.value
+        // count: state.count + 1
+        count: state.count + action.value
       }
     case 'minus':
       return {
