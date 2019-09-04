@@ -2,6 +2,7 @@ import React, { useRef, createContext } from "react";
 import useAbortableFetch from "use-abortable-fetch";
 import Toggle from "./Toggle";
 import { useTitleInput } from "./hooks/useTitleInput";
+import styled from "styled-components";
 
 export const UserContext = createContext();
 
@@ -22,13 +23,12 @@ const App = () => {
       <div className="main-wrapper" ref={ref}>
         <h1>React Hooks</h1>
         <Toggle />
-        {/* <Counter /> */}
         <form
           onSubmit={e => {
             e.preventDefault();
           }}
         >
-          <input
+          <MyInput
             type="text"
             onChange={e => setName(e.target.value)}
             value={name}
@@ -53,4 +53,10 @@ const App = () => {
 
 export default App;
 
-// useRef ... attach ref to a DOM element
+const MyInput = styled.input`
+  width: 200px;
+  height: 38px;
+  border: none;
+  padding: none;
+  outline: none;
+`;
