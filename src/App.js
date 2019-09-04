@@ -24,6 +24,11 @@ const App = () => {
         <h1>React Hooks</h1>
         <Toggle />
         <form
+          style={{
+            margin: "20px auto",
+            display: "flex",
+            justifyContent: "space-evenly"
+          }}
           onSubmit={e => {
             e.preventDefault();
           }}
@@ -54,9 +59,10 @@ const App = () => {
 export default App;
 
 const MyInput = styled.input`
-  width: 200px;
+  width: 300px;
   height: 38px;
   border: none;
   padding: none;
   outline: none;
+  border-radius: 4px;
 `;
